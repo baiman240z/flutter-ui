@@ -50,7 +50,28 @@ class TextFieldsState extends State<TextFields> {
           padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
           children: <Widget>[
             // -------------------------------------------------------------
-            // form field
+            // Simple
+            // -------------------------------------------------------------
+            Padding(
+              padding: EdgeInsets.symmetric(vertical: 10.0),
+              child: TextField(
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(15.0)),
+                  ),
+                  filled: true,
+                  fillColor: Color(0xFFFFFFCC),
+                  labelText: 'Simple field',
+                  hintText: 'Please input something.',
+                ),
+                style: TextStyle(
+                  fontSize:18.0,
+                  color: const Color(0xFF000000),
+                ),
+              ),
+            ),
+            // -------------------------------------------------------------
+            // Tel
             // -------------------------------------------------------------
             Padding(
               padding: EdgeInsets.symmetric(vertical: 10.0),
