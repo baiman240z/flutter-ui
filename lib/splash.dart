@@ -11,7 +11,7 @@ class SplashState extends State<Splash> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 1)).then((value) {
-      Navigator.pushReplacementNamed(context, '/forms');
+      Navigator.pushReplacementNamed(context, '/buttons');
     });
   }
 

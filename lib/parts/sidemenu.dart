@@ -24,8 +24,24 @@ class SideMenu {
           },
         ),
         ListTile(
+          leading: const Icon(Icons.pan_tool),
+          title: const Text('Buttons'),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, '/buttons');
+          },
+        ),
+        ListTile(
+          leading: const Icon(Icons.text_fields),
+          title: const Text('Text Fields'),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, '/textfields');
+          },
+        ),
+        ListTile(
           leading: const Icon(Icons.web),
-          title: const Text('Forms'),
+          title: const Text('Other forms'),
           onTap: () {
             Navigator.pop(context);
             Navigator.pushNamed(context, '/forms');
