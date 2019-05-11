@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'parts/sidemenu.dart';
+import 'classes/util.dart';
 
 class Forms extends StatefulWidget {
   @override
@@ -28,7 +28,7 @@ class FormsState extends State<Forms> {
         title: Text('Other forms'),
       ),
       body: _build(context),
-      drawer: SideMenu.drawer(context),
+      drawer: Util.drawer(context),
     );
   }
 

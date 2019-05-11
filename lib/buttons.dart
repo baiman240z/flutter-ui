@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'parts/sidemenu.dart';
+import 'classes/util.dart';
 
 class Buttons extends StatefulWidget {
   @override
@@ -20,7 +20,7 @@ class ButtonsState extends State<Buttons> {
         title: Text('Buttons'),
       ),
       body: _build(context),
-      drawer: SideMenu.drawer(context),
+      drawer: Util.drawer(context),
     );
   }
 

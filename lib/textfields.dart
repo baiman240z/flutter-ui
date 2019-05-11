@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'parts/sidemenu.dart';
-import 'parts/password.dart';
-import 'parts/formatter.dart';
+import 'classes/util.dart';
+import 'classes/password.dart';
+import 'classes/formatter.dart';
 
 class TextFields extends StatefulWidget {
   @override
@@ -36,7 +36,7 @@ class TextFieldsState extends State<TextFields> {
         title: Text('TextFields'),
       ),
       body: _build(context),
-      drawer: SideMenu.drawer(context),
+      drawer: Util.drawer(context),
     );
   }
 

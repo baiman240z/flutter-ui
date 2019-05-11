@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'parts/sidemenu.dart';
+import 'classes/util.dart';
 
 class Progress extends StatefulWidget {
   @override
@@ -24,7 +24,7 @@ class ProgressState extends State<Progress> {
         title: Text('Progress bar'),
       ),
       body: _build(),
-      drawer: SideMenu.drawer(context),
+      drawer: Util.drawer(context),
     );
   }
 

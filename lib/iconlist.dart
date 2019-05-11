@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'parts/sidemenu.dart';
 import 'package:http/http.dart' as http;
+import 'classes/util.dart';
 
 class IconList extends StatelessWidget {
   @override
@@ -10,7 +10,7 @@ class IconList extends StatelessWidget {
         title: Text('Icons'),
       ),
       body: _build(),
-      drawer: SideMenu.drawer(context),
+      drawer: Util.drawer(context),
     );
   }
 

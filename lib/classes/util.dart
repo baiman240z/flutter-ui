@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class SideMenu {
+class Util {
   static Drawer drawer(BuildContext context) {
     return Drawer(
         child: ListView(
