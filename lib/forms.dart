@@ -58,52 +58,50 @@ class FormsState extends State<Forms> {
   }
 
   Widget _build(BuildContext context) {
-    return SafeArea(
-      child: Form(
-        autovalidate: false,
-        child: ListView(
-          padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-          children: <Widget>[
-            // -------------------------------------------------------------
-            // Slider
-            // -------------------------------------------------------------
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 10.0),
-              child: Row(
-                children: <Widget>[
-                  Expanded(
-                    child: Slider(
-                      activeColor: Colors.deepOrange,
-                      inactiveColor: Colors.deepOrange.withOpacity(0.2),
-                      onChanged: (double value) {
-                        setState(() {
-                          sliderValue = value;
-                        });
-                      },
-                      value: sliderValue,
-                    ),
+    return Form(
+      autovalidate: false,
+      child: ListView(
+        padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+        children: <Widget>[
+          // -------------------------------------------------------------
+          // Slider
+          // -------------------------------------------------------------
+          Container(
+            margin: const EdgeInsets.symmetric(vertical: 10.0),
+            child: Row(
+              children: <Widget>[
+                Expanded(
+                  child: Slider(
+                    activeColor: Colors.deepOrange,
+                    inactiveColor: Colors.deepOrange.withOpacity(0.2),
+                    onChanged: (double value) {
+                      setState(() {
+                        sliderValue = value;
+                      });
+                    },
+                    value: sliderValue,
                   ),
-                  Text('${sliderValue * 100 ~/ 1}'),
-                ],
-              ),
+                ),
+                Text('${sliderValue * 100 ~/ 1}'),
+              ],
             ),
+          ),
 
-            // -------------------------------------------------------------
-            // Checkbox
-            // -------------------------------------------------------------
-            Container(
-              margin: const EdgeInsets.symmetric(vertical: 10.0),
-              child: Row(
-                children: <Widget>[
-                  _buildCheckBox('cat', 'Cat'),
-                  _buildCheckBox('dog', 'Dog'),
-                  _buildCheckBox('pig', 'Pig'),
-                ],
-              ),
+          // -------------------------------------------------------------
+          // Checkbox
+          // -------------------------------------------------------------
+          Container(
+            margin: const EdgeInsets.symmetric(vertical: 10.0),
+            child: Row(
+              children: <Widget>[
+                _buildCheckBox('cat', 'Cat'),
+                _buildCheckBox('dog', 'Dog'),
+                _buildCheckBox('pig', 'Pig'),
+              ],
             ),
-          ],
-        ),
-      )
+          ),
+        ],
+      ),
     );
   }
 }
