@@ -48,57 +48,62 @@ class TextFieldsState extends State<TextFields> {
       child: ListView(
         padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
         children: <Widget>[
+          SizedBox(height: 20.0,),
           // -------------------------------------------------------------
           // Simple
           // -------------------------------------------------------------
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 10.0),
-            child: TextField(
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(15.0)),
-                ),
-                filled: true,
-                fillColor: Color(0xFFFFFFCC),
-                labelText: 'Simple field',
-                hintText: 'Please input something.',
+          TextField(
+            decoration: const InputDecoration(
+              enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                borderSide: BorderSide(color: Colors.blueGrey, width: 1.0),
               ),
-              style: TextStyle(
-                fontSize:18.0,
-                color: const Color(0xFF000000),
+              focusedBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                borderSide: BorderSide(color: Colors.yellow, width: 1.0),
               ),
+              filled: true,
+              fillColor: Color(0xFFFFFFCC),
+              labelText: 'Simple field',
+              labelStyle: TextStyle(color: Colors.orange),
+              hintText: 'Please input something.',
+            ),
+            style: TextStyle(
+              fontSize:18.0,
+              color: const Color(0xFF000000),
             ),
           ),
+
+          SizedBox(height: 20.0,),
           // -------------------------------------------------------------
           // Tel
           // -------------------------------------------------------------
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 10.0),
-            child: TextFormField(
-              decoration: const InputDecoration(
-                border: UnderlineInputBorder(),
-                filled: true,
-                icon: Icon(Icons.phone),
-                hintText: 'Where can we reach you?',
-                labelText: 'Phone Number *',
-                prefixText: '',
-              ),
-              keyboardType: TextInputType.phone,
-              onSaved: (String value) { print('saved: $value'); },
-              validator: (String value) {
-                if (value.length == 0) { return null; }
-                final RegExp regexp = RegExp(r'^\d\d\d-\d\d\d\d\-\d\d\d\d$');
-                if (!regexp.hasMatch(value))
-                  return '###-####-#### - Enter a mobile phone number.';
-                return null;
-              },
-              inputFormatters: <TextInputFormatter> [
-                WhitelistingTextInputFormatter.digitsOnly,
-                // Fit the validating format.
-                _mobileNumberFormatter,
-              ],
+          TextFormField(
+            decoration: const InputDecoration(
+              border: UnderlineInputBorder(),
+              filled: true,
+              icon: Icon(Icons.phone),
+              hintText: 'Where can we reach you?',
+              labelText: 'Phone Number *',
+              prefixText: '',
             ),
+            keyboardType: TextInputType.phone,
+            onSaved: (String value) { print('saved: $value'); },
+            validator: (String value) {
+              if (value.length == 0) { return null; }
+              final RegExp regexp = RegExp(r'^\d\d\d-\d\d\d\d\-\d\d\d\d$');
+              if (!regexp.hasMatch(value))
+                return '###-####-#### - Enter a mobile phone number.';
+              return null;
+            },
+            inputFormatters: <TextInputFormatter> [
+              WhitelistingTextInputFormatter.digitsOnly,
+              // Fit the validating format.
+              _mobileNumberFormatter,
+            ],
           ),
+
+          SizedBox(height: 20.0,),
           // -------------------------------------------------------------
           // Email
           // -------------------------------------------------------------
@@ -110,8 +115,6 @@ class TextFieldsState extends State<TextFields> {
               ),
               borderRadius: BorderRadius.circular(20.0),
             ),
-            margin:
-            const EdgeInsets.symmetric(vertical: 10.0),
             child: Row(
               children: <Widget>[
                 Padding(
@@ -157,24 +160,23 @@ class TextFieldsState extends State<TextFields> {
             ),
           ),
 
+          SizedBox(height: 20.0,),
           // -------------------------------------------------------------
           // Password
           // -------------------------------------------------------------
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 10.0),
-            child: PasswordField(
-              fieldKey: _passwordFieldKey,
-              helperText: 'No more than $_passwordLen characters.',
-              labelText: 'Password *',
-              onFieldSubmitted: (String value) {
-                setState(() {
-                  print(value);
-                });
-              },
-              maxLength: _passwordLen,
-            ),
+          PasswordField(
+            fieldKey: _passwordFieldKey,
+            helperText: 'No more than $_passwordLen characters.',
+            labelText: 'Password *',
+            onFieldSubmitted: (String value) {
+              setState(() {
+                print(value);
+              });
+            },
+            maxLength: _passwordLen,
           ),
 
+          SizedBox(height: 20.0,),
           // -------------------------------------------------------------
           // validate button
           // -------------------------------------------------------------

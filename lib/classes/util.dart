@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class Util {
   static Drawer drawer(BuildContext context) {
     return Drawer(
-        child: ListView(
+      child: ListView(
       padding: EdgeInsets.zero,
       children: <Widget>[
         Container(
@@ -61,6 +61,14 @@ class Util {
           onTap: () {
             Navigator.pop(context);
             Navigator.pushNamed(context, '/progress');
+          },
+        ),
+        ListTile(
+          leading: const Icon(Icons.trending_flat),
+          title: const Text('Figma'),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, '/figma');
           },
         ),
       ],
