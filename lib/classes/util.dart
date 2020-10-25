@@ -64,11 +64,19 @@ class Util {
           },
         ),
         ListTile(
-          leading: const Icon(Icons.trending_flat),
-          title: const Text('Figma'),
+          leading: const Icon(Icons.grid_on),
+          title: const Text('Grid'),
           onTap: () {
             Navigator.pop(context);
-            Navigator.pushNamed(context, '/figma');
+            Navigator.pushNamed(context, '/grid');
+          },
+        ),
+        ListTile(
+          leading: const Icon(Icons.check_box_outline_blank),
+          title: const Text('Box'),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, '/box');
           },
         ),
       ],

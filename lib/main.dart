@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ui/box.dart';
+import 'package:ui/grid.dart';
 import 'splash.dart';
 import 'buttons.dart';
 import 'textfields.dart';
@@ -19,4 +21,6 @@ void main() => runApp(MaterialApp(
           '/forms': (BuildContext context) => Forms(),
           '/icons': (BuildContext context) => IconList(),
           '/progress': (BuildContext context) => Progress(),
+          '/grid': (BuildContext context) => Grid(),
+          '/box': (BuildContext context) => BoxSample(),
         }));
