@@ -40,9 +40,17 @@ class GridState extends State<Grid> {
       children: items.map((String value) {
         return Container(
           decoration: BoxDecoration(
-            color: Colors.green[100],
+            borderRadius: BorderRadius.circular(10.0),
+            boxShadow: [
+              BoxShadow(
+                blurRadius: 5,
+                color: Colors.grey,
+                offset: Offset(1, 1)
+              ),
+            ],
+            color: Colors.white,
             border: Border.all(
-              color: Colors.green[900],
+              color: Colors.grey,
               width: 1.0,
             ),
           ),
