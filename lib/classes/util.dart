@@ -79,6 +79,14 @@ class Util {
             Navigator.pushNamed(context, '/box');
           },
         ),
+        ListTile(
+          leading: const Icon(Icons.check_box_outline_blank),
+          title: const Text('AppBar title'),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, '/app-title');
+          },
+        ),
       ],
     ));
   }
