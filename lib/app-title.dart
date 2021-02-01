@@ -9,11 +9,7 @@ class AppTitle extends StatelessWidget {
         title: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Image.asset(
-              'assets/header-logo.png',
-              fit: BoxFit.fitHeight,
-              height: 24,
-            ),
+            FlutterLogo(),
             SizedBox(width: 8.0,),
             const Text(
                 'AppBar title',
@@ -23,9 +19,6 @@ class AppTitle extends StatelessWidget {
             ),
           ],
         ),
-        // flexibleSpace: Center(
-        //   child: ,
-        // ),
       ),
       body: SafeArea(
         child: Center(child: const Text('AppBar title'),),
