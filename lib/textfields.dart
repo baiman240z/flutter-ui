@@ -10,9 +10,6 @@ class TextFields extends StatefulWidget {
 }
 
 class TextFieldsState extends State<TextFields> {
-  double sliderValue;
-  Map<String, bool> checks;
-
   final _mobileNumberFormatter = MobileNumberFormatter();
   final _trimFormatter = TrimFormatter();
   final _formKey = GlobalKey<FormState>();
@@ -21,12 +18,6 @@ class TextFieldsState extends State<TextFields> {
   @override
   void initState() {
     super.initState();
-    sliderValue = 0.1;
-    checks = {
-      'cat': false,
-      'dog': false,
-      'pig': false,
-    };
   }
 
   @override
