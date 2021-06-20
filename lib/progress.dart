@@ -23,7 +23,12 @@ class ProgressState extends State<Progress> {
       appBar: AppBar(
         title: Text('Progress bar'),
       ),
-      body: _build(),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 20.0),
+          child: _build(),
+        ),
+      ),
       drawer: Util.drawer(context),
     );
   }
@@ -34,74 +39,69 @@ class ProgressState extends State<Progress> {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
-        Padding(
-          padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-          child: LinearProgressIndicator(value: progress / 100,),
-        ),
-        Padding(
-          padding: EdgeInsets.only(bottom: 10.0),
-          child: Text("$progress%"),
-        ),
-        Container(
-          padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-          child: FlatButton(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30.0)),
-            splashColor: Colors.yellow,
-            color: Color(0xFF4aa0d5),
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
-                child: Text(
-                  "START",
-                  style: TextStyle(color: Colors.white, fontSize: 16.0),
-                ),
-              ),
-            ),
-            onPressed: () {
-              setState(() {
-                canceled = false;
-                progress = 0;
-              });
-              Future.doWhile(() {
-                if (progress >= 100 || canceled) {
-                  return false;
-                }
-                return Future.delayed(Duration(seconds: 1), () {
-                  if (!canceled) {
-                    setState(() {
-                      progress += 10;
-                    });
-                  }
-                  return true;
+        LinearProgressIndicator(value: progress / 100,),
+        SizedBox(height: 20.0,),
+        Center(child: Text("$progress%")),
+        SizedBox(height: 20.0,),
+        Row(
+          children: [
+            Expanded(child: ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  canceled = false;
+                  progress = 0;
                 });
-              });
-            },
-          ),
-        ),
-        Container(
-          padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-          child: FlatButton(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(30.0)),
-            splashColor: Colors.yellow,
-            color: Colors.redAccent,
-            child: Center(
-              child: Padding(
-                padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
-                child: Text(
-                  "STOP",
-                  style: TextStyle(color: Colors.white, fontSize: 16.0),
+                Future.doWhile(() {
+                  if (progress >= 100 || canceled) {
+                    return false;
+                  }
+                  return Future.delayed(Duration(seconds: 1), () {
+                    if (!canceled) {
+                      setState(() {
+                        progress += 10;
+                      });
+                    }
+                    return true;
+                  });
+                });
+              },
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.all(16.0),
+                primary: const Color(0xFF4aa0d5),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0)
                 ),
               ),
-            ),
-            onPressed: () {
-              setState(() {
-                canceled = true;
-                progress = 0;
-              });
-            },
-          ),
+              child: const Text(
+                'START',
+                style: TextStyle(color: Colors.white, fontSize: 16.0),
+              ),
+            )),
+          ],
+        ),
+        SizedBox(height: 20.0,),
+        Row(
+          children: [
+            Expanded(child: ElevatedButton(
+              onPressed: () {
+                setState(() {
+                  canceled = true;
+                  progress = 0;
+                });
+              },
+              style: ElevatedButton.styleFrom(
+                padding: const EdgeInsets.all(16.0),
+                primary: Colors.red,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20.0)
+                ),
+              ),
+              child: const Text(
+                'STOP',
+                style: TextStyle(color: Colors.white, fontSize: 16.0),
+              ),
+            ))
+          ],
         ),
       ],
     );

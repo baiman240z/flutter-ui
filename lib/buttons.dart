@@ -25,106 +25,158 @@ class ButtonsState extends State<Buttons> {
   }
 
   Widget _build(BuildContext context) {
-    return Form(
-      autovalidate: false,
-      child: ListView(
-        padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-        children: <Widget>[
-          // -------------------------------------------------------------
-          // Simple Raised button
-          // -------------------------------------------------------------
-          Padding(
-            padding: EdgeInsets.symmetric(vertical: 10.0),
-            child: RaisedButton(
-              color: Colors.blueAccent,
-              splashColor: Colors.yellow,
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 16.0),
+    return ListView(
+      padding: EdgeInsets.symmetric(horizontal: 20.0),
+      children: <Widget>[
+        // -------------------------------------------------------------
+        // Simple ButtonStyle
+        // -------------------------------------------------------------
+        SizedBox(height: 20.0,),
+        ElevatedButton(
+          onPressed: () {},
+          style: ButtonStyle(
+            backgroundColor: MaterialStateProperty.all<Color>(Colors.teal),
+          ),
+          child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 16.0),
+              child: const Text(
+                'Simple ButtonStyle',
+                style: TextStyle(color: Colors.white, fontSize: 16.0),
+              )
+          ),
+        ),
+
+        // -------------------------------------------------------------
+        // Rounded border
+        // -------------------------------------------------------------
+        SizedBox(height: 20.0,),
+        ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.all(16.0),
+            primary: Colors.tealAccent,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20.0)
+            ),
+          ),
+          child: const Text(
+            'Rounded border',
+            style: TextStyle(color: Colors.teal, fontSize: 16.0),
+          ),
+        ),
+
+        // -------------------------------------------------------------
+        // Shadow
+        // -------------------------------------------------------------
+        SizedBox(height: 20.0,),
+        ElevatedButton(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            padding: const EdgeInsets.all(16.0),
+            primary: Colors.indigo,
+            elevation: 16.0,
+          ),
+          child: const Text(
+            'Shadow',
+            style: TextStyle(color: Colors.white, fontSize: 16.0),
+          ),
+        ),
+
+        // -------------------------------------------------------------
+        // Outlined
+        // -------------------------------------------------------------
+        SizedBox(height: 20.0,),
+        OutlinedButton(
+          onPressed: () {},
+          style: OutlinedButton.styleFrom(
+            primary: Colors.black,
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(10),
+            ),
+            side: const BorderSide(
+              color: Colors.green,
+              width: 3.0,
+            ),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: const Text(
+              'Outlined',
+              style: TextStyle(color: Colors.teal, fontSize: 16.0),
+            ),
+          ),
+        ),
+
+        // -------------------------------------------------------------
+        // Icon
+        // -------------------------------------------------------------
+        SizedBox(height: 20.0,),
+        ElevatedButton.icon(
+          onPressed: () {},
+          style: ElevatedButton.styleFrom(
+            primary: Colors.deepOrange,
+            onPrimary: Colors.white,
+          ),
+          icon: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 16.0),
+            child: const Icon(
+              Icons.tag_faces,
+              color: Colors.white,
+            ),
+          ),
+          label: const Text(
+            'Icon',
+            style: TextStyle(color: Colors.white, fontSize: 16.0),
+          ),
+        ),
+
+        // -------------------------------------------------------------
+        // Decorated
+        // -------------------------------------------------------------
+        SizedBox(height: 20.0,),
+        ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            primary: const Color(0xFF173F5F),
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(30.0)
+            ),
+          ),
+          child: Row(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.only(left: 20.0),
                 child: const Text(
-                  'Simple Raised',
-                  style: TextStyle(color: Colors.white, fontSize: 16.0),
-                )
-              ),
-              onPressed: () {},
-            ),
-          ),
-
-          // -------------------------------------------------------------
-          // Simple Flat button
-          // -------------------------------------------------------------
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 10.0),
-            child: FlatButton(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30.0)),
-              color: Color(0xFFED553B),
-              splashColor: Colors.yellow,
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
-                  child: Text(
-                    "Simple Flat",
-                    style: TextStyle(color: Colors.white, fontSize: 16.0),
-                  ),
+                  "Decorated",
+                  style: TextStyle(color: Colors.white),
                 ),
               ),
-              onPressed: () {},
-            ),
-          ),
-
-          // -------------------------------------------------------------
-          // Decorated button
-          // -------------------------------------------------------------
-          Container(
-            margin: const EdgeInsets.symmetric(vertical: 10.0),
-            child: Row(
-              children: <Widget>[
-                Expanded(
-                  child: FlatButton(
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30.0)),
-                    color: Color(0xFF173F5F),
-                    splashColor: Colors.yellow,
-                    child: Row(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(left: 20.0),
-                          child: Text(
-                            "Decorated Flat",
-                            style: TextStyle(color: Colors.white),
-                          ),
-                        ),
-                        Expanded(
-                          child: Container(),
-                        ),
-                        Transform.translate(
-                          offset: Offset(15.0, 0.0),
-                          child: Container(
-                            padding: const EdgeInsets.all(5.0),
-                            child: FlatButton(
-                              shape: RoundedRectangleBorder(
-                                borderRadius:
-                                BorderRadius.circular(28.0)),
-                              splashColor: Colors.white,
-                              color: Colors.white,
-                              child: Icon(
-                                Icons.arrow_forward,
-                                color: Color(0xFF173F5F),
-                              ),
-                              onPressed: () {},
-                            ),
-                          ),
+              Expanded(
+                child: Container(),
+              ),
+              Transform.translate(
+                offset: Offset(10.0, 0.0),
+                child: Container(
+                  padding: const EdgeInsets.all(5.0),
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        primary: Colors.white,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30.0)
                         )
-                      ],
                     ),
-                    onPressed: () => {},
+                    child: Icon(
+                      Icons.arrow_forward,
+                      color: const Color(0xFF173F5F),
+                    ),
+                    onPressed: () {},
                   ),
                 ),
-              ],
-            ),
+              )
+            ],
           ),
-        ],
-      ),
+          onPressed: () {},
+        ),
+      ],
     );
   }
 }

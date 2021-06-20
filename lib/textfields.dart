@@ -171,28 +171,20 @@ class TextFieldsState extends State<TextFields> {
           // -------------------------------------------------------------
           // validate button
           // -------------------------------------------------------------
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 10.0),
-            child: FlatButton(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30.0)),
-              color: Color(0xFF4aa0d5),
-              splashColor: Colors.yellow,
-              child: Center(
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 16.0, bottom: 16.0),
-                  child: Text(
-                    "validate",
-                    style: TextStyle(color: Colors.white, fontSize: 16.0),
-                  ),
-                ),
-              ),
-              onPressed: () {
-                _formKey.currentState.validate();
-              },
+          ElevatedButton(
+            onPressed: () {
+              _formKey.currentState.validate();
+            },
+            style: ElevatedButton.styleFrom(
+              padding: const EdgeInsets.all(16.0),
+              primary: Colors.indigo,
+              elevation: 16.0,
+            ),
+            child: const Text(
+              'validate',
+              style: TextStyle(color: Colors.white, fontSize: 16.0),
             ),
           ),
-
         ],
       ),
     );
